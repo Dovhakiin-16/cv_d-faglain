@@ -198,11 +198,11 @@ footer{background:var(--ink);color:color-mix(in srgb,var(--bg) 65%,var(--ink));f
         <h3>Migration des machines virtuelles vers Windows Server 2022 Datacenter</h3>
         <p class="where">SPEMA Cap Group</p>
         <span class="status">Terminé</span>
-        <ul class="tags"><li>Windows Server 2022</li><li>Virtualisation</li><li>Intervention à distance</li></ul>
+        <ul class="tags"><li>Hyper-V</li><li>Windows Server 2022</li><li>Virtualisation</li><li>Intervention à distance</li></ul>
       </div>
       <dl>
-        <div><dt>Contexte</dt><dd>Les machines virtuelles de l'entreprise tournaient sur un serveur physique sous Windows Server 2019 qu'il fallait remplacer.</dd></div>
-        <div><dt>Ce que j'ai fait</dt><dd>J'ai préparé puis réalisé seul la migration de l'ensemble des VM vers le nouvel hôte Windows Server 2022 Datacenter, entièrement à distance.</dd></div>
+        <div><dt>Contexte</dt><dd>Les quatre machines virtuelles Hyper-V qui portent les services critiques de l'entreprise (Active Directory, serveur de fichiers, ERP, Azure AD, serveur de licences) tournaient sur un serveur physique sous Windows Server 2019 qu'il fallait remplacer.</dd></div>
+        <div><dt>Ce que j'ai fait</dt><dd>J'ai préparé puis réalisé seul la migration de ces quatre VM vers le nouvel hôte Hyper-V sous Windows Server 2022 Datacenter, entièrement à distance.</dd></div>
         <div><dt>Résultat</dt><dd>Toute la bascule a été faite en un week-end.</dd></div>
       </dl>
     </article>
@@ -237,12 +237,13 @@ footer{background:var(--ink);color:color-mix(in srgb,var(--bg) 65%,var(--ink));f
       <div>
         <h3>Application de gestion des baies de brassage</h3>
         <p class="where">Projet personnel, utilisé en entreprise</p>
-        <span class="status">En développement</span>
-        <ul class="tags"><li>Application Windows</li><li>Documentation réseau</li></ul>
+        <span class="status">En service</span>
+        <ul class="tags"><li>Electron</li><li>JavaScript</li><li>Application Windows</li><li>Documentation réseau</li><li>Développement assisté par IA</li></ul>
       </div>
       <dl>
         <div><dt>Le besoin</dt><dd>Avoir une vue d'ensemble, et détaillée, du câblage physique du réseau : quelle prise arrive sur quel port de quel panneau.</dd></div>
-        <div><dt>Ce que j'ai fait</dt><dd>J'ai conçu une application de bureau Windows qui représente les baies et leurs panneaux, gère la numérotation continue des ports d'un panneau à l'autre et se met à jour depuis son menu Fichier.</dd></div>
+        <div><dt>Ce que j'ai fait</dt><dd>J'ai conçu, avec l'aide de Claude (IA), une application de bureau Windows qui représente les baies, les panneaux de brassage, les switchs et les équipements (serveurs, NAS, routeurs), avec les liaisons entre ports, y compris entre switchs. Les données sont enregistrées dans un fichier local et l'application se met à jour d'elle-même.</dd></div>
+        <div><dt>Résultat</dt><dd>Utilisée sur le terrain pour documenter le câblage. Plusieurs versions successives, corrigées et enrichies à partir de cet usage.</dd></div>
       </dl>
     </article>
   </div>
@@ -299,7 +300,7 @@ footer{background:var(--ink);color:color-mix(in srgb,var(--bg) 65%,var(--ink));f
     <div class="head"><span class="dot" style="--c:var(--c3)"></span><h2>Formation</h2></div>
     <ol class="xp">
       <li><span class="when">2025 – 2027</span><div><h3>Mastère professionnel Manager en infrastructures et cybersécurité des SI (MICSI)</h3><p class="org">CESI Châteauroux, en alternance</p><ul><li>2e année en cours, 1re année validée en septembre 2026</li><li>Titre RNCP de niveau 7 (bac+5)</li></ul></div></li>
-      <li><span class="when">2024 – 2025</span><div><h3>Bachelor Administrateur systèmes et réseaux (ASR)</h3><p class="org">CESI Châteauroux, en alternance</p></div></li>
+      <li><span class="when">2024 – 2025</span><div><h3>Bachelor Administrateur systèmes et réseaux (ASR)</h3><p class="org">CESI Châteauroux, en alternance</p><ul><li>Diplôme obtenu, titre RNCP de niveau 6 (bac+3)</li></ul></div></li>
       <li><span class="when">2022</span><div><h3>BTS SIO, option SISR</h3><p class="org">Aftec, Orléans</p></div></li>
       <li><span class="when">2019 – 2020</span><div><h3>Formation développeur informatique</h3><p class="org">Ynov, Nantes</p></div></li>
     </ol>
