@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Donovan Faglain – Admin systèmes &amp; réseaux</title>
+<meta name="description" content="Portfolio de Donovan Faglain, administrateur systèmes et réseaux en alternance (Mastère MICSI, CESI). Projets, parcours et compétences.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+<style>
+/*
+VOICE: calme, précis, technicien qui documente proprement son travail.
+IDEA: un panneau de brassage. Chaque port relié est une rubrique du site, chaque cordon y mène.
+PICTURE: une baie en bande pleine largeur, panneau 12 ports, six cordons de couleur qui descendent vers leurs étiquettes.
+COLOUR and TYPE: blanc, marine #0f2233, turquoise du CV papier, couleurs de cordons réservées à la baie. Archivo seule, large en titre, étroite pour les étiquettes.
+LAYOUT: nom et présentation, puis la baie ; ensuite des rubriques alignées à gauche, dates en marge.
+*/
+:root{color-scheme:light dark;
+--bg:light-dark(#fbfcfc,#0c1620);--ink:light-dark(#0f2233,#e4edf2);--muted:light-dark(#4d6070,#9db0be);
+--line:light-dark(#d9e1e6,#22323f);--teal:light-dark(#0b7d7a,#45c4be);--soft:light-dark(#eef4f5,#122230);
+--cab:#26303a;--plate:#10161b;
+--c1:#2b7de0;--c2:#e6b324;--c3:#22a89c;--c4:#e0523f;--c5:#8c99a5;--c6:#3f9e55}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.6 Archivo,system-ui,sans-serif;font-stretch:100%;overflow-x:clip}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 max(5vw,18px)}
+h1,h2,h3{line-height:1.08;text-wrap:balance;margin:0}
+h2{font-size:clamp(28px,3.4vw,40px);font-weight:750;font-stretch:112%;letter-spacing:-.01em}
+h3{font-size:21px;font-weight:700;font-stretch:105%}
+p{margin:0 0 1em;max-width:68ch}
+
+/* barre haute */
+.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:20px;height:60px}
+.top b{font-weight:750;font-stretch:112%;margin-right:auto;white-space:nowrap}
+.top nav{display:flex;gap:18px;overflow-x:auto;scrollbar-width:none}
+.top nav a{text-decoration:none;font-size:15px;color:var(--muted);white-space:nowrap;display:flex;align-items:center;gap:7px;padding:10px 0}
+.top nav a:hover{color:var(--ink)}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--c);flex:none}
+
+/* ouverture */
+.hero{padding:clamp(36px,5vw,64px) 0 clamp(32px,4vw,48px)}
+.hero h1{font-size:clamp(46px,7.6vw,96px);font-weight:800;font-stretch:118%;letter-spacing:-.025em;line-height:.95}
+.role{font-size:clamp(19px,2.2vw,24px);font-weight:600;color:var(--teal);margin:18px 0 22px;font-stretch:104%}
+.intro{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);align-items:end}
+.facts{margin:0;display:grid;gap:10px;font-size:15.5px}
+.facts div{display:grid;grid-template-columns:7.5em 1fr;gap:10px;border-top:1px solid var(--line);padding-top:10px}
+.facts dt{color:var(--muted)}.facts dd{margin:0;font-weight:550}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:0 20px;border-radius:8px;font-weight:650;text-decoration:none;border:2px solid var(--ink)}
+.btn.main{background:var(--ink);color:var(--bg)}
+.btn:hover{border-color:var(--teal)}.btn.main:hover{background:var(--teal);color:#fff}
+
+/* la baie */
+.rack{background:var(--cab);padding:34px 0 0;position:relative;
+background-image:linear-gradient(90deg,#1b232b 0 34px,transparent 34px calc(100% - 34px),#1b232b 0)}
+.rack::before,.rack::after{content:"";position:absolute;top:0;bottom:0;width:10px;
+background:repeating-linear-gradient(#26303a 0 8px,#0d1216 8px 16px,#26303a 16px 26px);left:12px}
+.rack::after{left:auto;right:12px}
+.panel{position:relative;background:linear-gradient(#1a2127,var(--plate) 40%,#0b0f12);border-radius:3px;padding:14px 46px 16px;box-shadow:0 1px 0 #3a4652 inset,0 10px 24px rgba(0,0,0,.35)}
+.panel::before,.panel::after{content:"";position:absolute;top:50%;width:12px;height:12px;margin-top:-6px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#c4ccd2,#6b7680 60%,#3c454d);left:16px}
+.panel::after{left:auto;right:16px}
+.brand{position:absolute;top:4px;left:46px;font-size:11px;color:#7f8c97;font-stretch:80%}
+.ports{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(4px,1vw,12px);list-style:none;margin:0;padding:10px 0 0}
+.port{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:#c9d3da;position:relative}
+.num{font-size:12px;font-weight:600;font-stretch:80%;color:#8796a2;margin-bottom:5px}
+.jack{width:min(100%,44px);aspect-ratio:1.15;background:#05080a;border-radius:3px;position:relative;box-shadow:0 0 0 2px #2d3842;
+clip-path:polygon(0 0,100% 0,100% 78%,72% 78%,72% 100%,28% 100%,28% 78%,0 78%)}
+.led{width:7px;height:7px;border-radius:50%;background:#26313a;margin-bottom:6px}
+.on .led{background:#3ddc78;box-shadow:0 0 8px #3ddc78;animation:link .5s steps(2,end) calc(var(--i)*.18s + .3s) both}
+@keyframes link{0%{background:#26313a;box-shadow:none}50%{background:#e6a93a;box-shadow:0 0 6px #e6a93a}100%{background:#3ddc78}}
+.on .jack::after{content:"";position:absolute;inset:16% 12% 0;background:var(--c);border-radius:2px 2px 0 0}
+.port{position:relative}
+.cable{position:absolute;top:calc(100% - 3px);left:50%;transform:translateX(-50%);width:9px;height:calc(var(--h) + 18px);border-radius:0 0 3px 3px;background:linear-gradient(90deg,color-mix(in srgb,var(--c) 70%,#000),var(--c) 45%,color-mix(in srgb,var(--c) 75%,#fff) 60%,var(--c));}
+.tag{position:absolute;top:calc(100% + var(--h) + 12px);left:50%;transform:translateX(-50%);background:#f2f5f7;color:#0f2233;font-weight:650;font-size:14px;font-stretch:90%;padding:7px 10px;border-radius:4px;border-top:4px solid var(--c);white-space:nowrap;box-shadow:0 4px 10px rgba(0,0,0,.25);transition:transform .15s}
+.port:hover .tag,.port:focus-visible .tag{transform:translate(-50%,3px)}
+.port:focus-visible{outline-color:#45c4be}
+.panel{margin-bottom:168px}
+.legend{color:#8fa0ad;font-size:13.5px;padding:0 0 18px;margin:0}
+
+/* rubriques */
+.band{padding:clamp(48px,6vw,88px) 0;border-top:1px solid var(--line)}
+.head{display:flex;align-items:center;gap:14px;margin-bottom:clamp(22px,3vw,36px)}
+.head .dot{width:14px;height:14px}
+.lead{color:var(--muted);font-size:18px;max-width:62ch;margin-top:-14px;margin-bottom:32px}
+.proj{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.4fr);gap:clamp(18px,4vw,56px);padding:30px 0;border-top:1px solid var(--line)}
+.proj:first-of-type{border-top:0;padding-top:0}
+.where{color:var(--muted);font-size:15px;margin:8px 0 14px}
+.status{display:inline-block;font-size:13.5px;font-weight:650;padding:3px 10px;border-radius:99px;background:var(--soft);color:var(--teal)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin:14px 0 0}
+.tags li{font-size:13.5px;padding:3px 9px;border:1px solid var(--line);border-radius:5px;color:var(--muted)}
+.proj dl{margin:0;display:grid;gap:14px}
+.proj dt{font-weight:700;font-size:15px;color:var(--teal)}
+.proj dd{margin:2px 0 0;max-width:62ch}
+.big h3{font-size:clamp(24px,2.6vw,30px)}
+
+.xp{list-style:none;margin:0;padding:0}
+.xp>li{display:grid;grid-template-columns:11em minmax(0,1fr);gap:clamp(14px,3vw,40px);padding:24px 0;border-top:1px solid var(--line)}
+.xp>li:first-child{border-top:0;padding-top:0}
+.when{font-weight:650;font-stretch:92%;color:var(--muted);white-space:nowrap}
+.xp ul{margin:10px 0 0;padding-left:1.1em}
+.xp li li{margin:3px 0}
+.xp .org{color:var(--teal);font-weight:600;margin-top:4px}
+
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:28px 40px}
+.skills h3{font-size:18px;padding-bottom:8px;border-bottom:2px solid var(--ink);margin-bottom:10px}
+.skills ul{list-style:none;margin:0;padding:0}
+.skills li{padding:5px 0;border-bottom:1px solid var(--line)}
+.traits{margin-top:36px;color:var(--muted)}
+
+.contact{background:var(--ink);color:var(--bg);border:0}
+.contact .head .dot{box-shadow:0 0 0 3px color-mix(in srgb,var(--bg) 25%,transparent)}
+.contact p{max-width:56ch;font-size:18px}
+.contact .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px;margin-top:30px}
+.contact dt{opacity:.7;font-size:14.5px}.contact dd{margin:4px 0 0;font-size:19px;font-weight:650;overflow-wrap:anywhere}
+.contact .btn{border-color:var(--bg)}.contact .btn.main{background:var(--bg);color:var(--ink)}
+.contact .btn.main:hover{background:var(--teal);border-color:var(--teal);color:#fff}
+footer{background:var(--ink);color:color-mix(in srgb,var(--bg) 65%,var(--ink));font-size:14px;padding:22px 0 28px;border-top:1px solid color-mix(in srgb,var(--bg) 18%,var(--ink))}
+
+@media (max-width:860px){
+.intro,.proj{grid-template-columns:minmax(0,1fr)}
+.xp>li{grid-template-columns:minmax(0,1fr);gap:4px}
+}
+@media (max-width:640px){
+.top nav{display:none}
+.rack{padding-top:22px;background-image:none}.rack::before,.rack::after{display:none}
+.panel{padding:16px 16px 12px;margin-bottom:14px}.panel::before,.panel::after,.brand,.num{display:none}
+.ports{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 14px}
+.port:not(.on){display:none}
+.port{flex-direction:row;gap:10px;padding:6px 0;min-height:44px}
+.jack{width:30px;flex:none}.led{margin:0;flex:none}
+.cable{display:none}
+.tag,.port:hover .tag,.port:focus-visible .tag{position:static;transform:none;margin:0;box-shadow:none;background:none;color:#e4edf2;border:0;padding:0;border-left:4px solid var(--c);padding-left:8px;white-space:nowrap}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.on .led{animation:none}.tag{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <b>Donovan Faglain</b>
+    <nav aria-label="Rubriques">
+      <a href="#projets"><span class="dot" style="--c:var(--c1)"></span>Projets</a>
+      <a href="#parcours"><span class="dot" style="--c:var(--c2)"></span>Parcours</a>
+      <a href="#formation"><span class="dot" style="--c:var(--c3)"></span>Formation</a>
+      <a href="#competences"><span class="dot" style="--c:var(--c4)"></span>Compétences</a>
+      <a href="#contact"><span class="dot" style="--c:var(--c6)"></span>Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <h1>Donovan Faglain</h1>
+    <p class="role">Administrateur systèmes &amp; réseaux, en alternance</p>
+    <div class="intro">
+      <div>
+        <p>J'administre l'infrastructure de SPEMA Cap Group depuis septembre 2024&nbsp;: serveurs Windows et Linux, réseau, virtualisation, sauvegardes et support. En parallèle, je prépare au CESI de Châteauroux le Mastère Manager en infrastructures et cybersécurité des SI (titre RNCP de niveau 7, bac+5).</p>
+        <p>Je travaille dans l'informatique depuis 2020, du support utilisateur jusqu'aux projets d'infrastructure que je mène aujourd'hui.</p>
+        <div class="cta">
+          <a class="btn main" href="cv-donovan-faglain.pdf">Télécharger mon CV (PDF)</a>
+          <a class="btn" href="#contact">Me contacter</a>
+        </div>
+      </div>
+      <dl class="facts">
+        <div><dt>Poste actuel</dt><dd>SPEMA Cap Group, depuis sept. 2024</dd></div>
+        <div><dt>Formation</dt><dd>Mastère MICSI, CESI, 2e année</dd></div>
+        <div><dt>Secteur</dt><dd>Châteauroux, Issoudun, Centre-Val de Loire</dd></div>
+        <div><dt>Mobilité</dt><dd>Permis B, véhiculé</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<div class="rack" aria-label="Navigation : panneau de brassage">
+  <div class="wrap">
+    <div class="panel">
+      <span class="brand" aria-hidden="true">Panneau A1</span>
+      <ul class="ports" id="ports"></ul>
+    </div>
+    <p class="legend">Chaque cordon mène à une rubrique. Les ports libres attendent les prochains projets.</p>
+  </div>
+</div>
+
+<section class="band" id="projets">
+  <div class="wrap">
+    <div class="head"><span class="dot" style="--c:var(--c1)"></span><h2>Projets</h2></div>
+    <p class="lead">Quelques réalisations menées en entreprise. Les noms de serveurs, adresses et détails internes sont volontairement omis.</p>
+
+    <article class="proj big">
+      <div>
+        <h3>Migration des machines virtuelles vers Windows Server 2022 Datacenter</h3>
+        <p class="where">SPEMA Cap Group</p>
+        <span class="status">Terminé</span>
+        <ul class="tags"><li>Windows Server 2022</li><li>Virtualisation</li><li>Intervention à distance</li></ul>
+      </div>
+      <dl>
+        <div><dt>Contexte</dt><dd>Les machines virtuelles de l'entreprise tournaient sur un serveur physique sous Windows Server 2019 qu'il fallait remplacer.</dd></div>
+        <div><dt>Ce que j'ai fait</dt><dd>J'ai préparé puis réalisé seul la migration de l'ensemble des VM vers le nouvel hôte Windows Server 2022 Datacenter, entièrement à distance.</dd></div>
+        <div><dt>Résultat</dt><dd>Toute la bascule a été faite en un week-end.</dd></div>
+      </dl>
+    </article>
+
+    <article class="proj">
+      <div>
+        <h3>Refonte du plan d'adressage du réseau</h3>
+        <p class="where">SPEMA Cap Group</p>
+        <span class="status">En cours</span>
+        <ul class="tags"><li>Adressage IP</li><li>DHCP</li><li>Active Directory</li><li>DNS</li><li>Gestion de projet</li></ul>
+      </div>
+      <dl>
+        <div><dt>Contexte</dt><dd>Le réseau de l'entreprise passe sur un nouveau plan d'adressage privé.</dd></div>
+        <div><dt>Ce que je fais</dt><dd>Je pilote le projet de bout en bout : DHCP et réservations IP, puis bascule des serveurs (Active Directory, DNS, impression, fichiers). Je le conduis en mode projet, avec cadrage, planning et suivi.</dd></div>
+      </dl>
+    </article>
+
+    <article class="proj">
+      <div>
+        <h3>Réseau de l'atelier de production</h3>
+        <p class="where">SPEMA Cap Group</p>
+        <span class="status">En place</span>
+        <ul class="tags"><li>Plan IP</li><li>Réseau industriel</li><li>Serveur de fichiers</li></ul>
+      </div>
+      <dl>
+        <div><dt>Contexte</dt><dd>Les machines-outils de l'atelier (centres d'usinage DMU, Röders…) échangent leurs programmes avec un serveur de fichiers.</dd></div>
+        <div><dt>Ce que je fais</dt><dd>Je tiens le plan d'adressage IP de ces machines et leur raccordement au serveur de fichiers.</dd></div>
+      </dl>
+    </article>
+
+    <article class="proj">
+      <div>
+        <h3>Application de gestion des baies de brassage</h3>
+        <p class="where">Projet personnel, utilisé en entreprise</p>
+        <span class="status">En développement</span>
+        <ul class="tags"><li>Application Windows</li><li>Documentation réseau</li></ul>
+      </div>
+      <dl>
+        <div><dt>Le besoin</dt><dd>Avoir une vue d'ensemble, et détaillée, du câblage physique du réseau : quelle prise arrive sur quel port de quel panneau.</dd></div>
+        <div><dt>Ce que j'ai fait</dt><dd>J'ai conçu une application de bureau Windows qui représente les baies et leurs panneaux, gère la numérotation continue des ports d'un panneau à l'autre et se met à jour depuis son menu Fichier.</dd></div>
+      </dl>
+    </article>
+  </div>
+</section>
+
+<section class="band" id="parcours">
+  <div class="wrap">
+    <div class="head"><span class="dot" style="--c:var(--c2)"></span><h2>Parcours</h2></div>
+    <ol class="xp">
+      <li>
+        <span class="when">Sept. 2024 – aujourd'hui</span>
+        <div>
+          <h3>Administrateur réseau et systèmes (alternance)</h3>
+          <p class="org">SPEMA Cap Group</p>
+          <ul>
+            <li>Administration et maintenance des systèmes Windows et Linux</li>
+            <li>Réseau, routage, VLAN et virtualisation ; gestion du parc</li>
+            <li>Sauvegarde et restauration, supervision, dépannage</li>
+            <li>Scripts PowerShell, support et traitement des tickets</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <span class="when">Déc. 2022 – août 2024</span>
+        <div>
+          <h3>Technicien infrastructure matériel et logiciel (CDI)</h3>
+          <p class="org">L'Assurance Maladie, CPAM de Châteauroux</p>
+          <ul>
+            <li>Préparation et déploiement de postes, gestion des stocks</li>
+            <li>Installation, configuration, dépannage et maintenance</li>
+            <li>Active Directory et gestion des droits d'accès aux fichiers</li>
+            <li>Support utilisateurs</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <span class="when">Août 2020 – juil. 2022</span>
+        <div>
+          <h3>Technicien informatique (alternance)</h3>
+          <p class="org">Groupe IDEC, Blois</p>
+          <ul>
+            <li>Support utilisateurs pour 450 salariés</li>
+            <li>Déploiement de postes</li>
+            <li>Installation et configuration de baies informatiques pour les chantiers</li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="band" id="formation">
+  <div class="wrap">
+    <div class="head"><span class="dot" style="--c:var(--c3)"></span><h2>Formation</h2></div>
+    <ol class="xp">
+      <li><span class="when">2025 – 2027</span><div><h3>Mastère professionnel Manager en infrastructures et cybersécurité des SI (MICSI)</h3><p class="org">CESI Châteauroux, en alternance</p><ul><li>2e année en cours, 1re année validée en septembre 2026</li><li>Titre RNCP de niveau 7 (bac+5)</li></ul></div></li>
+      <li><span class="when">2024 – 2025</span><div><h3>Bachelor Administrateur systèmes et réseaux (ASR)</h3><p class="org">CESI Châteauroux, en alternance</p></div></li>
+      <li><span class="when">2022</span><div><h3>BTS SIO, option SISR</h3><p class="org">Aftec, Orléans</p></div></li>
+      <li><span class="when">2019 – 2020</span><div><h3>Formation développeur informatique</h3><p class="org">Ynov, Nantes</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="band" id="competences">
+  <div class="wrap">
+    <div class="head"><span class="dot" style="--c:var(--c4)"></span><h2>Compétences</h2></div>
+    <div class="skills">
+      <div><h3>Systèmes</h3><ul><li>Windows Server</li><li>Active Directory, GPO</li><li>DNS, DHCP</li><li>Linux, Debian</li><li>PowerShell, Bash</li></ul></div>
+      <div><h3>Réseaux</h3><ul><li>TCP/IP, VLAN</li><li>Routage, OSPF</li><li>VPN, Cisco</li><li>Proxy</li><li>Wireshark</li></ul></div>
+      <div><h3>Virtualisation</h3><ul><li>Hyper-V</li><li>VMware</li><li>Docker</li></ul></div>
+      <div><h3>Supervision et sécurité</h3><ul><li>Zabbix</li><li>PRTG</li><li>PingCastle</li><li>Nexthink</li></ul></div>
+      <div><h3>Sauvegarde</h3><ul><li>Sauvegarde sur bande</li><li>Avamar</li><li>Restauration et reprise</li></ul></div>
+      <div><h3>Outils</h3><ul><li>GLPI, ticketing</li><li>Microsoft 365</li><li>HTML, CSS</li></ul></div>
+    </div>
+    <p class="traits">Rigoureux, autonome, à l'aise en équipe et curieux des nouvelles technologies.</p>
+  </div>
+</section>
+
+<section class="band contact" id="contact">
+  <div class="wrap">
+    <div class="head"><span class="dot" style="--c:var(--c6)"></span><h2>Contact</h2></div>
+    <p>Un poste en administration systèmes et réseaux, un projet d'infrastructure&nbsp;? Écrivez-moi, je réponds rapidement.</p>
+    <dl class="grid">
+      <div><dt>E-mail</dt><dd><a href="mailto:donovan.faglain@gmail.com">donovan.faglain@gmail.com</a></dd></div>
+      <div><dt>Secteur</dt><dd>Châteauroux, Issoudun</dd></div>
+      <div><dt>Mobilité</dt><dd>Permis B, véhiculé</dd></div>
+    </dl>
+    <div class="cta">
+      <a class="btn main" href="mailto:donovan.faglain@gmail.com">M'écrire</a>
+      <a class="btn" href="cv-donovan-faglain.pdf">Télécharger mon CV (PDF)</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">© 2026 Donovan Faglain</div></footer>
+
+<script>
+{
+  const links = [
+    {n:2, id:'projets', label:'Projets', c:'--c1', h:60},
+    {n:3, id:'parcours', label:'Parcours', c:'--c2', h:110},
+    {n:5, id:'formation', label:'Formation', c:'--c3', h:66},
+    {n:6, id:'competences', label:'Compétences', c:'--c4', h:118},
+    {n:8, id:'contact', label:'Contact', c:'--c6', h:64},
+    {n:9, file:'cv-donovan-faglain.pdf', label:'CV (PDF)', c:'--c5', h:116}
+  ];
+  let i = 0;
+  const html = Array.from({length:12}, (_, k) => {
+    const p = links.find(l => l.n === k + 1);
+    if (!p) return `<li class="port" aria-hidden="true"><span class="num">${k+1}</span><span class="led"></span><span class="jack"></span></li>`;
+    const href = p.file || '#' + p.id;
+    return `<li><a class="port on" href="${href}" style="--c:var(${p.c});--i:${i++};--h:${p.h}px"><span class="num">${k+1}</span><span class="led"></span><span class="jack"></span><span class="cable"></span><span class="tag">${p.label}</span></a></li>`;
+  }).join('');
+  document.getElementById('ports').innerHTML = html;
+}
+</script>
+</body>
+</html>
