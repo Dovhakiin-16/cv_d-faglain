@@ -101,6 +101,7 @@ clip-path:polygon(0 0,100% 0,100% 78%,72% 78%,72% 100%,28% 100%,28% 78%,0 78%)}
 .shot{grid-column:1/-1;margin:6px 0 0}
 .shot img{display:block;width:100%;height:auto;border-radius:8px;border:1px solid var(--line)}
 .shot figcaption{color:var(--muted);font-size:14px;margin-top:8px}
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:16px;align-items:start}
 
 .xp{list-style:none;margin:0;padding:0}
 .xp>li{display:grid;grid-template-columns:11em minmax(0,1fr);gap:clamp(14px,3vw,40px);padding:24px 0;border-top:1px solid var(--line)}
@@ -256,6 +257,27 @@ footer{background:var(--ink);color:color-mix(in srgb,var(--bg) 65%,var(--ink));f
         <figcaption>Une baie de 42U dans l'application. Les noms des équipements et le chemin du fichier ont été floutés.</figcaption>
       </figure>
     </article>
+
+    <article class="proj">
+      <div>
+        <h3>Serveur Linux auto-hébergé&nbsp;: Immich et Tailscale</h3>
+        <p class="where">Projet personnel</p>
+        <span class="status">En service</span>
+        <ul class="tags"><li>Debian 13</li><li>Linux</li><li>Immich</li><li>Tailscale</li><li>VPN</li><li>Auto-hébergement</li></ul>
+      </div>
+      <dl>
+        <div><dt>Contexte</dt><dd>Un serveur Linux personnel pour héberger moi-même mes photos et vidéos, accessible depuis mon téléphone où que je sois.</dd></div>
+        <div><dt>Ce que j'ai fait</dt><dd>J'ai installé Debian 13 sur un PC dédié et déployé Immich, une solution libre de gestion de photos auto-hébergée. J'ai ensuite relié le serveur et mon téléphone avec Tailscale, un VPN maillé basé sur WireGuard&nbsp;: l'accès à distance passe par ce réseau privé chiffré.</dd></div>
+        <div><dt>Résultat</dt><dd>Le serveur est en service, avec mes premiers albums de photos et vidéos importés, et l'accès depuis le téléphone fonctionne.</dd></div>
+      </dl>
+      <figure class="shot">
+        <div class="shots">
+          <img src="capture-immich.webp" width="1400" height="667" loading="lazy" alt="Interface d'Immich : bibliothèque de photos organisée en albums, avec l'espace de stockage utilisé.">
+          <img src="capture-tailscale.webp" width="1400" height="547" loading="lazy" alt="Console Tailscale : le serveur Debian et le téléphone connectés au réseau privé.">
+        </div>
+        <figcaption>Immich avec ses albums, et la console Tailscale avec le serveur et le téléphone connectés. Les photos, noms d'albums, comptes et adresses ont été floutés.</figcaption>
+      </figure>
+    </article>
   </div>
 </section>
 
@@ -343,7 +365,7 @@ footer{background:var(--ink);color:color-mix(in srgb,var(--bg) 65%,var(--ink));f
     <div class="head"><span class="dot" style="--c:var(--c4)"></span><h2>Compétences</h2></div>
     <div class="skills">
       <div><h3>Systèmes</h3><ul><li>Windows Server</li><li>Active Directory, GPO</li><li>DNS, DHCP</li><li>Linux, Debian</li><li>PowerShell, Bash</li></ul></div>
-      <div><h3>Réseaux</h3><ul><li>TCP/IP, VLAN</li><li>Routage, OSPF</li><li>VPN, Cisco</li><li>Proxy</li><li>Wireshark</li></ul></div>
+      <div><h3>Réseaux</h3><ul><li>TCP/IP, VLAN</li><li>Routage, OSPF</li><li>VPN (Tailscale, WireGuard), Cisco</li><li>Proxy</li><li>Wireshark</li></ul></div>
       <div><h3>Virtualisation</h3><ul><li>Hyper-V</li><li>VMware</li><li>Docker</li></ul></div>
       <div><h3>Supervision et sécurité</h3><ul><li>Zabbix</li><li>PRTG</li><li>PingCastle</li><li>Nexthink</li></ul></div>
       <div><h3>Sauvegarde</h3><ul><li>Sauvegarde sur bande</li><li>Avamar</li><li>Restauration et reprise</li></ul></div>
