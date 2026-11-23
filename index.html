@@ -53,6 +53,7 @@ p{margin:0 0 1em;max-width:68ch}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
 .btn{display:inline-flex;align-items:center;min-height:46px;padding:0 20px;border-radius:8px;font-weight:650;text-decoration:none;border:2px solid var(--ink)}
 .btn.main{background:var(--ink);color:var(--bg)}
+button.btn{font:inherit;font-weight:650;cursor:pointer}
 .btn:hover{border-color:var(--teal)}.btn.main:hover{background:var(--teal);color:#fff}
 
 /* la baie */
@@ -115,10 +116,11 @@ clip-path:polygon(0 0,100% 0,100% 78%,72% 78%,72% 100%,28% 100%,28% 78%,0 78%)}
 .contact{background:var(--ink);color:var(--bg);border:0}
 .contact .head .dot{box-shadow:0 0 0 3px color-mix(in srgb,var(--bg) 25%,transparent)}
 .contact p{max-width:56ch;font-size:18px}
-.contact .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px;margin-top:30px}
+.contact .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:24px;margin-top:30px}
 .contact dt{opacity:.7;font-size:14.5px}.contact dd{margin:4px 0 0;font-size:19px;font-weight:650;overflow-wrap:anywhere}
 .contact .btn{border-color:var(--bg)}.contact .btn.main{background:var(--bg);color:var(--ink)}
 .contact .btn.main:hover{background:var(--teal);border-color:var(--teal);color:#fff}
+.copied{align-self:center;font-weight:600}
 footer{background:var(--ink);color:color-mix(in srgb,var(--bg) 65%,var(--ink));font-size:14px;padding:22px 0 28px;border-top:1px solid color-mix(in srgb,var(--bg) 18%,var(--ink))}
 
 @media (max-width:860px){
@@ -333,8 +335,9 @@ footer{background:var(--ink);color:color-mix(in srgb,var(--bg) 65%,var(--ink));f
       <div><dt>Mobilité</dt><dd>Permis B, véhiculé</dd></div>
     </dl>
     <div class="cta">
-      <a class="btn main" href="mailto:donovan.faglain@gmail.com">M'écrire</a>
+      <button class="btn main" type="button" id="copy-mail">Copier mon adresse e-mail</button>
       <a class="btn" href="cv-donovan-faglain.pdf">Télécharger mon CV (PDF)</a>
+      <span class="copied" id="copied" role="status"></span>
     </div>
   </div>
 </section>
@@ -360,6 +363,20 @@ footer{background:var(--ink);color:color-mix(in srgb,var(--bg) 65%,var(--ink));f
     return `<li><a class="port on" href="${href}" style="--c:var(${p.c});--i:${i++};--h:${p.h}px"><span class="num">${k+1}</span><span class="led"></span><span class="jack"></span><span class="cable"></span><span class="tag">${p.label}</span></a></li>`;
   }).join('');
   document.getElementById('ports').innerHTML = html;
+
+  const mail = 'donovan.faglain@gmail.com';
+  const btn = document.getElementById('copy-mail');
+  const msg = document.getElementById('copied');
+  btn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(mail);
+      msg.textContent = 'Adresse copiée : ' + mail;
+    } catch (e) {
+      msg.textContent = 'Mon adresse : ' + mail;
+    }
+    clearTimeout(btn._t);
+    btn._t = setTimeout(() => { msg.textContent = ''; }, 4000);
+  });
 }
 </script>
 </body>
