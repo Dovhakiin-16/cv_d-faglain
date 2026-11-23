@@ -20,7 +20,7 @@ LAYOUT: nom et présentation, puis la baie ; ensuite des rubriques alignées à 
 --bg:light-dark(#fbfcfc,#0c1620);--ink:light-dark(#0f2233,#e4edf2);--muted:light-dark(#4d6070,#9db0be);
 --line:light-dark(#d9e1e6,#22323f);--teal:light-dark(#0b7d7a,#45c4be);--soft:light-dark(#eef4f5,#122230);
 --cab:#26303a;--plate:#10161b;
---c1:#2b7de0;--c2:#e6b324;--c3:#22a89c;--c4:#e0523f;--c5:#8c99a5;--c6:#3f9e55}
+--c1:#2b7de0;--c2:#e6b324;--c3:#22a89c;--c4:#e0523f;--c5:#8c99a5;--c6:#3f9e55;--c7:#ef8a2b}
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
@@ -77,6 +77,7 @@ clip-path:polygon(0 0,100% 0,100% 78%,72% 78%,72% 100%,28% 100%,28% 78%,0 78%)}
 .port{position:relative}
 .cable{position:absolute;top:calc(100% - 3px);left:50%;transform:translateX(-50%);width:9px;height:calc(var(--h) + 18px);border-radius:0 0 3px 3px;background:linear-gradient(90deg,color-mix(in srgb,var(--c) 70%,#000),var(--c) 45%,color-mix(in srgb,var(--c) 75%,#fff) 60%,var(--c));}
 .tag{position:absolute;top:calc(100% + var(--h) + 12px);left:50%;transform:translateX(-50%);background:#f2f5f7;color:#0f2233;font-weight:650;font-size:14px;font-stretch:90%;padding:7px 10px;border-radius:4px;border-top:4px solid var(--c);white-space:nowrap;box-shadow:0 4px 10px rgba(0,0,0,.25);transition:transform .15s}
+.cable{z-index:1}.tag{z-index:2}
 .port:hover .tag,.port:focus-visible .tag{transform:translate(-50%,3px)}
 .port:focus-visible{outline-color:#45c4be}
 .panel{margin-bottom:168px}
@@ -97,6 +98,9 @@ clip-path:polygon(0 0,100% 0,100% 78%,72% 78%,72% 100%,28% 100%,28% 78%,0 78%)}
 .proj dt{font-weight:700;font-size:15px;color:var(--teal)}
 .proj dd{margin:2px 0 0;max-width:62ch}
 .big h3{font-size:clamp(24px,2.6vw,30px)}
+.shot{grid-column:1/-1;margin:6px 0 0}
+.shot img{display:block;width:100%;height:auto;border-radius:8px;border:1px solid var(--line)}
+.shot figcaption{color:var(--muted);font-size:14px;margin-top:8px}
 
 .xp{list-style:none;margin:0;padding:0}
 .xp>li{display:grid;grid-template-columns:11em minmax(0,1fr);gap:clamp(14px,3vw,40px);padding:24px 0;border-top:1px solid var(--line)}
@@ -136,6 +140,7 @@ footer{background:var(--ink);color:color-mix(in srgb,var(--bg) 65%,var(--ink));f
 .cable{display:none}
 .tag,.port:hover .tag,.port:focus-visible .tag{position:static;transform:none;margin:0;box-shadow:none;background:none;color:#e4edf2;border:0;padding:0;border-left:4px solid var(--c);padding-left:8px;white-space:nowrap}
 }
+@media (max-width:440px){.ports{grid-template-columns:minmax(0,1fr)}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.on .led{animation:none}.tag{transition:none}}
 </style>
 </head>
@@ -146,6 +151,7 @@ footer{background:var(--ink);color:color-mix(in srgb,var(--bg) 65%,var(--ink));f
     <b>Donovan Faglain</b>
     <nav aria-label="Rubriques">
       <a href="#projets"><span class="dot" style="--c:var(--c1)"></span>Projets</a>
+      <a href="#cyber"><span class="dot" style="--c:var(--c7)"></span>Cybersécurité</a>
       <a href="#parcours"><span class="dot" style="--c:var(--c2)"></span>Parcours</a>
       <a href="#formation"><span class="dot" style="--c:var(--c3)"></span>Formation</a>
       <a href="#competences"><span class="dot" style="--c:var(--c4)"></span>Compétences</a>
@@ -198,12 +204,12 @@ footer{background:var(--ink);color:color-mix(in srgb,var(--bg) 65%,var(--ink));f
         <h3>Migration des machines virtuelles vers Windows Server 2022 Datacenter</h3>
         <p class="where">SPEMA Cap Group</p>
         <span class="status">Terminé</span>
-        <ul class="tags"><li>Hyper-V</li><li>Windows Server 2022</li><li>Virtualisation</li><li>Intervention à distance</li></ul>
+        <ul class="tags"><li>Hyper-V</li><li>Live Migration</li><li>Windows Server 2022</li><li>Intervention à distance</li></ul>
       </div>
       <dl>
-        <div><dt>Contexte</dt><dd>Les quatre machines virtuelles Hyper-V qui portent les services critiques de l'entreprise (Active Directory, serveur de fichiers, ERP, Azure AD, serveur de licences) tournaient sur un serveur physique sous Windows Server 2019 qu'il fallait remplacer.</dd></div>
-        <div><dt>Ce que j'ai fait</dt><dd>J'ai préparé puis réalisé seul la migration de ces quatre VM vers le nouvel hôte Hyper-V sous Windows Server 2022 Datacenter, entièrement à distance.</dd></div>
-        <div><dt>Résultat</dt><dd>Toute la bascule a été faite en un week-end.</dd></div>
+        <div><dt>Contexte</dt><dd>Les quatre machines virtuelles Hyper-V qui portent les services critiques de l'entreprise (Active Directory et DHCP, serveur de fichiers, ERP, Azure AD, serveur de licences) tournaient sur un serveur physique sous Windows Server 2019 qu'il fallait remplacer.</dd></div>
+        <div><dt>Ce que j'ai fait</dt><dd>J'ai préparé puis réalisé seul la migration des quatre VM vers le nouvel hôte Hyper-V sous Windows Server 2022 Datacenter, par Live Migration et entièrement à distance, en deux week-ends.</dd></div>
+        <div><dt>Déroulé</dt><dd>Premier week-end&nbsp;: les VM de l'ERP, d'Azure AD et du serveur de licences, en 3&nbsp;heures. Second week-end&nbsp;: la VM Active Directory, DHCP et serveur de fichiers, la plus sensible, en 8&nbsp;heures un samedi.</dd></div>
       </dl>
     </article>
 
@@ -244,6 +250,31 @@ footer{background:var(--ink);color:color-mix(in srgb,var(--bg) 65%,var(--ink));f
         <div><dt>Le besoin</dt><dd>Avoir une vue d'ensemble, et détaillée, du câblage physique du réseau : quelle prise arrive sur quel port de quel panneau.</dd></div>
         <div><dt>Ce que j'ai fait</dt><dd>J'ai conçu, avec l'aide de Claude (IA), une application de bureau Windows qui représente les baies, les panneaux de brassage, les switchs et les équipements (serveurs, NAS, routeurs), avec les liaisons entre ports, y compris entre switchs. Les données sont enregistrées dans un fichier local et l'application se met à jour d'elle-même.</dd></div>
         <div><dt>Résultat</dt><dd>Utilisée sur le terrain pour documenter le câblage. Plusieurs versions successives, corrigées et enrichies à partir de cet usage.</dd></div>
+      </dl>
+      <figure class="shot">
+        <img src="capture-baies-brassage.webp" width="1600" height="859" loading="lazy" alt="Vue d'une baie 42U dans l'application : panneaux de brassage, switchs et cordons de couleur reliant les ports, avec la liste des équipements à droite.">
+        <figcaption>Une baie de 42U dans l'application. Les noms des équipements et le chemin du fichier ont été floutés.</figcaption>
+      </figure>
+    </article>
+  </div>
+</section>
+
+<section class="band" id="cyber">
+  <div class="wrap">
+    <div class="head"><span class="dot" style="--c:var(--c7)"></span><h2>Cybersécurité</h2></div>
+    <p class="lead">Le volet sécurité de mon travail, en lien avec mon Mastère Manager en infrastructures et cybersécurité des SI.</p>
+
+    <article class="proj">
+      <div>
+        <h3>Audit de sécurité de l'Active Directory avec PingCastle</h3>
+        <p class="where">SPEMA Cap Group</p>
+        <span class="status">En cours</span>
+        <ul class="tags"><li>PingCastle</li><li>Active Directory</li><li>Audit</li><li>Durcissement</li></ul>
+      </div>
+      <dl>
+        <div><dt>Contexte</dt><dd>L'Active Directory est le cœur de l'authentification de l'entreprise et une cible privilégiée en cas d'attaque. Il fallait mesurer son niveau de sécurité réel.</dd></div>
+        <div><dt>Ce que je fais</dt><dd>J'audite l'AD avec PingCastle, qui attribue un score de risque et liste les points faibles (comptes à privilèges, configuration, objets obsolètes, relations d'approbation). Je priorise ensuite les corrections et je relance l'audit pour mesurer les progrès.</dd></div>
+        <div><dt>Résultats</dt><dd>Les scores avant et après corrections seront publiés ici.</dd></div>
       </dl>
     </article>
   </div>
@@ -347,6 +378,7 @@ footer{background:var(--ink);color:color-mix(in srgb,var(--bg) 65%,var(--ink));f
   const links = [
     {n:2, id:'projets', label:'Projets', c:'--c1', h:60},
     {n:3, id:'parcours', label:'Parcours', c:'--c2', h:110},
+    {n:4, id:'cyber', label:'Cybersécurité', c:'--c7', h:16},
     {n:5, id:'formation', label:'Formation', c:'--c3', h:66},
     {n:6, id:'competences', label:'Compétences', c:'--c4', h:118},
     {n:8, id:'contact', label:'Contact', c:'--c6', h:64},
